@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat - AntonIA</title>
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/components.css">
+  <link rel="stylesheet" href="/src/views/dashboard/chat-detail/chat-detail.css">
+</head>
+<body>
+  
+  <!-- Contenedor principal -->
+  <div class="chat-detail-container">
+    
+    <!-- Header del chat -->
+    <header class="chat-header">
+      <button class="btn-back" id="back-btn" title="Volver a conversaciones">
+        <span>←</span>
+      </button>
+      
+      <div class="chat-info">
+        <div class="client-avatar-small" id="client-avatar">MG</div>
+        <div class="client-details">
+          <h2 class="client-name" id="client-name">María González</h2>
+          <p class="client-phone" id="client-phone">55 1234 5678</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <!-- Switch de modo oscuro -->
+        <div class="theme-toggle">
+          <label class="switch" title="Cambiar a modo oscuro">
+            <input type="checkbox" id="theme-switch">
+            <span class="slider">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Área de mensajes -->
+    <div class="messages-area" id="messages-area">
+      <div class="messages-container" id="messages-container">
+        <!-- Los mensajes se cargarán dinámicamente aquí -->
+      </div>
+    </div>
+
+    <!-- Botones de acción inicial (se muestran al inicio del chat) -->
+    <div class="action-buttons hidden" id="action-buttons">
+      <p class="action-prompt">¿Qué te gustaría hacer?</p>
+      <div class="action-grid">
+        <button class="btn-action" data-action="quote">
+          <span class="action-icon">💰</span>
+          <span class="action-text">Hacer una cotización</span>
+        </button>
+        <button class="btn-action" data-action="recommend">
+          <span class="action-icon">⭐</span>
+          <span class="action-text">Recomendar un producto</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mensaje de error con reintentar -->
+    <div class="error-banner hidden" id="error-banner">
+      <div class="error-content">
+        <span class="error-icon">⚠️</span>
+        <span class="error-text">No se pudo enviar el mensaje. Verifica tu conexión.</span>
+      </div>
+      <button class="btn-retry" id="retry-btn">Reintentar</button>
+    </div>
+
+    <!-- Área de input -->
+    <div class="input-area">
+      <div class="input-container">
+        <textarea 
+          id="message-input" 
+          class="message-input" 
+          placeholder="Escribe un mensaje..."
+          rows="1"
+        ></textarea>
+        <button class="btn-send" id="send-btn" disabled>
+          <span>📤</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/src/views/dashboard/chat-detail/chat-detail.js"></script>
+</body>
+</html>

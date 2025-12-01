@@ -115,11 +115,36 @@ loginForm.addEventListener('submit', (e) => {
     return;
   }
   
-  // Simulación: mostrar error genérico (placeholder para lógica real)
-  showError('Credenciales inválidas. Verifica tu usuario y contraseña.');
+  // Simulación de login exitoso (por ahora cualquier combinación funciona)
+  // TODO: Aquí iría la lógica real de autenticación con backend
   
-  // TODO: Aquí iría la lógica real de autenticación
-  console.log('Login attempt:', { username, branch: selectedBranch });
+  // Guardar datos del usuario en localStorage
+  const userData = {
+    id: `V${Date.now().toString().slice(-3)}`,
+    name: username.split('@')[0].replace('.', ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    email: username,
+    branch: selectedBranch
+  };
+  
+  localStorage.setItem('currentUser', JSON.stringify(userData));
+  
+  // Registrar acción de login
+  const log = {
+    timestamp: new Date().toISOString(),
+    vendorId: userData.id,
+    branchId: selectedBranch.id,
+    action: 'login',
+    data: { username, branchName: selectedBranch.name }
+  };
+  
+  const logs = JSON.parse(localStorage.getItem('actionLogs') || '[]');
+  logs.push(log);
+  localStorage.setItem('actionLogs', JSON.stringify(logs));
+  
+  console.log('Login successful:', userData);
+  
+  // Redirigir a la lista de chats
+  window.location.href = '/src/views/dashboard/chat-list/chat-list.html';
 });
 
 // Mostrar mensaje de error
@@ -128,13 +153,13 @@ function showError(message) {
   loginError.classList.remove('hidden');
 }
 
-// Enlaces (placeholders)
+// Enlaces
 document.getElementById('forgot-password').addEventListener('click', (e) => {
   e.preventDefault();
-  alert('Funcionalidad de recuperación de contraseña (placeholder)');
+  alert('Funcionalidad de recuperación de contraseña (próximamente)');
 });
 
 document.getElementById('link-register').addEventListener('click', (e) => {
   e.preventDefault();
-  alert('Funcionalidad de registro (placeholder)');
+  window.location.href = '/src/views/auth/register/register.html';
 });

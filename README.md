@@ -23,7 +23,15 @@ antonIAFrontEnd/
 │   │   │       ├── register.html
 │   │   │       ├── register.css
 │   │   │       └── register.js
-│   │   └── dashboard/          # Panel principal (futuro)
+│   │   └── dashboard/          # Panel principal
+│   │       ├── chat-list/      # Lista de conversaciones
+│   │       │   ├── chat-list.html
+│   │       │   ├── chat-list.css
+│   │       │   └── chat-list.js
+│   │       └── chat-detail/    # Chat individual
+│   │           ├── chat-detail.html
+│   │           ├── chat-detail.css
+│   │           └── chat-detail.js
 │   │
 │   ├── services/               # Servicios/API calls (futuro)
 │   ├── utils/                  # Utilidades y helpers (futuro)
@@ -49,8 +57,11 @@ python3 -m http.server 8000
 
 ### Acceder a las vistas
 
+- **Página Principal**: http://localhost:8000/index.html
 - **Login**: http://localhost:8000/src/views/auth/login/login.html
 - **Registro**: http://localhost:8000/src/views/auth/register/register.html
+- **Lista de Chats**: http://localhost:8000/src/views/dashboard/chat-list/chat-list.html
+- **Chat Individual**: http://localhost:8000/src/views/dashboard/chat-detail/chat-detail.html
 
 ## 🎨 Diseño
 
@@ -62,16 +73,25 @@ python3 -m http.server 8000
 
 ✅ Sistema de inicio de sesión con selección de sucursal
 ✅ Registro de usuarios con validación
+✅ Lista de conversaciones tipo app de mensajería
+✅ Chat individual con AntonIA (asistente virtual)
+✅ Búsqueda en tiempo real de conversaciones
+✅ Anclar/desanclar conversaciones
+✅ Crear nuevas conversaciones
+✅ Botones de acción rápida (cotizar, recomendar)
+✅ Manejo de errores con reintentos
+✅ Registro de acciones del vendedor
 ✅ Modo claro/oscuro persistente
 ✅ Diseño responsive
 ✅ UI/UX según brand Cesantoni
 
 ## 🔄 Próximas Mejoras
 
-- [ ] Dashboard principal
-- [ ] Integración con backend/API
-- [ ] Gestión de inventario
+- [ ] Integración con backend/API real
+- [ ] Funcionalidad de cotización completa
 - [ ] Sistema de recomendaciones de productos
+- [ ] Consulta de políticas y garantías
+- [ ] Gestión de inventario
 - [ ] Reportes y analytics
 
 ## 🛠️ Tecnologías

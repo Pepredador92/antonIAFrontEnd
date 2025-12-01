@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Conversaciones - AntonIA</title>
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/components.css">
+  <link rel="stylesheet" href="/src/views/dashboard/chat-list/chat-list.css">
+</head>
+<body>
+  
+  <!-- Contenedor principal -->
+  <div class="chat-list-container">
+    
+    <!-- Header con info del vendedor y sucursal -->
+    <header class="chat-header">
+      <div class="header-left">
+        <div class="user-avatar" id="user-avatar">
+          <span id="avatar-initials">JD</span>
+        </div>
+        <div class="user-info">
+          <h2 class="user-name" id="user-name">Juan Pérez</h2>
+          <p class="branch-name" id="branch-name">Sucursal Centro</p>
+        </div>
+      </div>
+      
+      <div class="header-right">
+        <!-- Switch de modo oscuro -->
+        <div class="theme-toggle">
+          <label class="switch" title="Cambiar a modo oscuro">
+            <input type="checkbox" id="theme-switch">
+            <span class="slider">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </span>
+          </label>
+        </div>
+        
+        <!-- Botón de cerrar sesión -->
+        <button class="btn-logout" id="logout" title="Cerrar sesión">
+          <img src="/public/img/log-out.png" alt="Cerrar sesión" class="logout-icon">
+        </button>
+      </div>
+    </header>
+
+    <!-- Buscador -->
+    <div class="search-section">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="chat-search" 
+          class="input search-input" 
+          placeholder="Buscar por nombre, teléfono o mensaje..."
+        >
+        <button class="btn-clear-search hidden" id="clear-search">✕</button>
+      </div>
+    </div>
+
+    <!-- Lista de conversaciones -->
+    <div class="conversations-section">
+      <div class="conversations-header">
+        <h3 class="section-title">Conversaciones</h3>
+        <button class="btn btn-primary btn-new-chat" id="new-chat-btn">
+          <span class="btn-icon-inline">+</span> Nuevo chat
+        </button>
+      </div>
+
+      <!-- Lista de chats -->
+      <div class="conversations-list" id="conversations-list">
+        <!-- Las conversaciones se cargarán dinámicamente aquí -->
+      </div>
+
+      <!-- Estado vacío -->
+      <div class="empty-state hidden" id="empty-state">
+        <div class="empty-icon">+</div>
+        <h3 class="empty-title">No hay conversaciones</h3>
+        <p class="empty-message">Inicia una nueva conversación con tus clientes</p>
+        <button class="btn btn-primary" id="empty-new-chat">Nuevo chat</button>
+      </div>
+
+      <!-- Estado sin resultados de búsqueda -->
+      <div class="empty-state hidden" id="no-results-state">
+        <div class="empty-icon"></div>
+        <h3 class="empty-title">No se encontraron resultados</h3>
+        <p class="empty-message">Intenta con otros términos de búsqueda</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal: Nuevo Chat -->
+  <div class="modal hidden" id="new-chat-modal">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Nuevo chat</h3>
+        <button class="btn-close-modal" id="close-modal">✕</button>
+      </div>
+      
+      <div class="modal-body">
+        <p class="modal-subtitle">Ingresa los datos del cliente para iniciar la conversación</p>
+        
+        <!-- Mensajes de error -->
+        <div class="message error hidden" id="modal-error">
+          <span class="message-icon">⚠️</span>
+          <span class="message-text" id="modal-error-text">Error al crear el chat</span>
+        </div>
+        
+        <form id="new-chat-form">
+
+          <div class="form-group">
+            <label for="client-name" class="form-label">Nombre del Cliente *</label>
+            <input 
+              type="text" 
+              id="client-name" 
+              class="input" 
+              placeholder="Ej: María González"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="client-phone" class="form-label">Teléfono *</label>
+            <input 
+              type="tel" 
+              id="client-phone" 
+              class="input" 
+              placeholder="Ej: 55 1234 5678"
+              required
+            >
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" id="cancel-modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" id="create-chat-btn">Crear chat</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/src/views/dashboard/chat-list/chat-list.js"></script>
+</body>
+</html>
