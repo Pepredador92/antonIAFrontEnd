@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selección de Sucursal - Cesantoni</title>
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/components.css">
+  <link rel="stylesheet" href="/src/views/auth/login/login.css">
+</head>
+<body>
+  
+  <!-- Contenedor principal -->
+  <div class="branch-selection-container">
+    
+    <!-- Header con logo -->
+    <header class="branch-header">
+      <img src="public/img/logo-cesantoni.png" alt="Cesantoni" class="branch-logo">
+      
+      <!-- Switch de modo oscuro -->
+      <div class="theme-toggle">
+        <label class="switch" title="Cambiar a modo oscuro">
+          <input type="checkbox" id="theme-switch">
+          <span class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Vista unificada: Selección de sucursal + Login -->
+    <section class="unified-view">
+      <div class="unified-content">
+        
+        <!-- Columna izquierda: Selección de sucursal -->
+        <div class="branch-column">
+          <h1 class="step-title">Selecciona tu sucursal</h1>
+          <p class="step-subtitle">Elige la tienda donde trabajarás hoy</p>
+
+          <!-- Buscador -->
+          <div class="search-box">
+            <input 
+              type="text" 
+              id="branch-search" 
+              class="input search-input" 
+              placeholder="Busca tu tienda por ciudad, estado o nombre"
+            >
+          </div>
+
+          <!-- Sucursales disponibles -->
+          <div class="branch-section" id="branches-list">
+            <!-- Las sucursales se cargarán dinámicamente aquí -->
+          </div>
+        </div>
+
+        <!-- Columna derecha: Login -->
+        <div class="login-column">
+          <h1 class="step-title">Iniciar sesión</h1>
+          <p class="step-subtitle">Ingresa tus credenciales para continuar</p>
+
+          <!-- Mensajes de error (ocultos por defecto) -->
+          <div class="message error hidden" id="login-error">
+            <span class="message-icon">⚠️</span>
+            <span class="message-text" id="error-text">Credenciales inválidas. Verifica tu usuario y contraseña.</span>
+          </div>
+
+          <!-- Formulario de login -->
+          <form class="login-form" id="login-form">
+            
+            <div class="form-group">
+              <label for="username" class="form-label">Usuario o correo</label>
+              <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                class="input" 
+                placeholder="ingresa tu usuario@cesantoni.com"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Contraseña</label>
+              <div class="password-input-wrapper">
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="input" 
+                  placeholder="Tienen que ser 8 caracteres como mínimo"
+                  required
+                >
+                <button type="button" class="btn-toggle-password" id="toggle-password">
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group-inline">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me" name="remember">
+                <span>Recordarme en este dispositivo</span>
+              </label>
+              <a href="#" class="link-forgot" id="forgot-password">Olvidé mi contraseña</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="btn-login">
+              Iniciar sesión
+            </button>
+
+          </form>
+
+          <!-- Link a registro (opcional) -->
+          <div class="login-footer">
+            <p>¿No tienes cuenta? <a href="#" class="link-register" id="link-register">Regístrate aquí</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/src/views/auth/login/login.js"></script>
+</body>
+</html>

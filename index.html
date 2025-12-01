@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AntonIA - Sistema Cesantoni</title>
+  <link rel="stylesheet" href="/public/css/base.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .logo {
+      height: 80px;
+      margin-bottom: 32px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-text);
+      margin: 0 0 16px 0;
+    }
+    p {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      margin: 0 0 48px 0;
+    }
+    .links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-link {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    .btn-link:hover {
+      background: var(--color-primary-dark);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-link.secondary {
+      background: transparent;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+    }
+    .btn-link.secondary:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <img src="public/img/logo-cesantoni.png" alt="Cesantoni" class="logo">
+  <h1>AntonIA</h1>
+  <p>Sistema de Gestión Interno para Cesantoni</p>
+  
+  <div class="links">
+    <a href="/src/views/auth/login/login.html" class="btn-link">Iniciar Sesión</a>
+    <a href="/src/views/auth/register/register.html" class="btn-link secondary">Registrarse</a>
+  </div>
+</body>
+</html>

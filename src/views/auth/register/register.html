@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario - Cesantoni</title>
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/components.css">
+  <link rel="stylesheet" href="/src/views/auth/register/register.css">
+</head>
+<body>
+  
+  <!-- Contenedor principal -->
+  <div class="register-container">
+    
+    <!-- Header con logo -->
+    <header class="register-header">
+      <img src="public/img/logo-cesantoni.png" alt="Cesantoni" class="register-logo">
+      
+      <!-- Switch de modo oscuro -->
+      <div class="theme-toggle">
+        <label class="switch" title="Cambiar a modo oscuro">
+          <input type="checkbox" id="theme-switch">
+          <span class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Vista principal: Formulario de registro -->
+    <section class="register-view" id="register-section">
+      <div class="register-content">
+        
+        <div class="register-form-wrapper">
+          <h1 class="register-title">Crear cuenta</h1>
+          <p class="register-subtitle">Completa tus datos para registrarte en Cesantoni</p>
+
+          <!-- Mensajes de error (ocultos por defecto) -->
+          <div class="message error hidden" id="register-error">
+            <span class="message-icon">⚠️</span>
+            <span class="message-text" id="error-text">Por favor completa todos los campos correctamente.</span>
+          </div>
+
+          <!-- Formulario de registro -->
+          <form class="register-form" id="register-form">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" class="form-label">Nombre(s) *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="input" 
+                  placeholder="Juan"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="lastname" class="form-label">Apellidos *</label>
+                <input 
+                  type="text" 
+                  id="lastname" 
+                  name="lastname" 
+                  class="input" 
+                  placeholder="Pérez García"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group phone-group">
+                <label for="phone" class="form-label">Teléfono *</label>
+                <div class="phone-input-wrapper">
+                  <select id="country-code" name="country_code" class="input country-select" required>
+                    <option value="+52" selected>🇲🇽 +52</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+56">🇨🇱 +56</option>
+                    <option value="+54">🇦🇷 +54</option>
+                    <option value="+57">🇨🇴 +57</option>
+                    <option value="+51">🇵🇪 +51</option>
+                    <option value="+34">🇪🇸 +34</option>
+                  </select>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="input phone-input" 
+                    placeholder="55 1234 5678"
+                    required
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="birthdate" class="form-label">Fecha de nacimiento *</label>
+                <input 
+                  type="date" 
+                  id="birthdate" 
+                  name="birthdate" 
+                  class="input" 
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Correo electrónico *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="input" 
+                placeholder="tu.correo@ejemplo.com"
+                required
+              >
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="password" class="form-label">Contraseña *</label>
+                <div class="password-input-wrapper">
+                  <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="input" 
+                    placeholder="••••••••"
+                    required
+                  >
+                  <button type="button" class="btn-toggle-password" id="toggle-password">
+                    👁️
+                  </button>
+                </div>
+                <small class="form-hint">Mínimo 8 caracteres</small>
+              </div>
+
+              <div class="form-group">
+                <label for="confirm-password" class="form-label">Confirmar contraseña *</label>
+                <div class="password-input-wrapper">
+                  <input 
+                    type="password" 
+                    id="confirm-password" 
+                    name="confirm_password" 
+                    class="input" 
+                    placeholder="••••••••"
+                    required
+                  >
+                  <button type="button" class="btn-toggle-password" id="toggle-confirm-password">
+                    👁️
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="terms" name="terms" required>
+                <span>Acepto los <a href="#" class="link-terms">términos y condiciones</a></span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="btn-register">
+              Crear cuenta
+            </button>
+
+          </form>
+
+          <!-- Link a login -->
+          <div class="register-footer">
+            <p>¿Ya tienes cuenta? <a href="/src/views/auth/login/login.html" class="link-login">Inicia sesión aquí</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script src="/src/views/auth/register/register.js"></script>
+</body>
+</html>
