@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recomendación AntonIA - Cesantoni</title>
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/components.css">
+  <link rel="stylesheet" href="/src/views/dashboard/chat-recommendation/chat-recommendation.css">
+</head>
+<body>
+  
+  <!-- Contenedor principal -->
+  <div class="chat-recommendation-container">
+    
+    <!-- Header del chat -->
+    <header class="chat-header">
+      <button class="btn-back" id="back-btn" title="Volver al chat">
+        <span>←</span>
+      </button>
+      
+      <div class="chat-info">
+        <div class="ai-avatar">
+          <span>AI</span>
+        </div>
+        <div class="chat-details">
+          <h2 class="chat-title">AntonIA - Recomendación de Productos</h2>
+          <p class="chat-subtitle">Asistente de ventas inteligente</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <!-- Switch de modo oscuro -->
+        <div class="theme-toggle">
+          <label class="switch" title="Cambiar a modo oscuro">
+            <input type="checkbox" id="theme-switch">
+            <span class="slider">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Área de mensajes con ejemplo de flujo -->
+    <div class="messages-area" id="messages-area">
+      <div class="messages-container" id="messages-container">
+        
+        <!-- Mensaje 1: Bienvenida de AntonIA -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">¡Hola! Voy a ayudarte a encontrar el producto perfecto para tu cliente. 🎯</p>
+            </div>
+            <div class="message-time">10:30</div>
+          </div>
+        </div>
+
+        <!-- Mensaje 2: Primera pregunta con chips -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">¿Qué tipo de proyecto tiene tu cliente?</p>
+            </div>
+            <div class="message-time">10:30</div>
+          </div>
+        </div>
+
+        <!-- Chips de opciones (botones de respuesta rápida) -->
+        <div class="message-chips">
+          <button class="chip-option">🏗️ Construcción</button>
+          <button class="chip-option">🔧 Remodelación</button>
+          <button class="chip-option">🛠️ Reparación</button>
+          <button class="chip-option">🏡 Mantenimiento</button>
+          <button class="chip-option">💡 Otro</button>
+        </div>
+
+        <!-- Mensaje 3: Respuesta del vendedor -->
+        <div class="message sent">
+          <div class="message-avatar">JP</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Construcción</p>
+            </div>
+            <div class="message-time">10:31</div>
+          </div>
+        </div>
+
+        <!-- Mensaje 4: Pregunta de seguimiento -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Perfecto. ¿Qué tamaño tiene el proyecto? 📏</p>
+            </div>
+            <div class="message-time">10:31</div>
+          </div>
+        </div>
+
+        <!-- Chips de tamaño -->
+        <div class="message-chips">
+          <button class="chip-option">📦 Pequeño (hasta 50m²)</button>
+          <button class="chip-option">🏢 Mediano (50-200m²)</button>
+          <button class="chip-option">🏗️ Grande (más de 200m²)</button>
+        </div>
+
+        <!-- Mensaje 5: Respuesta del vendedor -->
+        <div class="message sent">
+          <div class="message-avatar">JP</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Grande, es un proyecto de aproximadamente 300m²</p>
+            </div>
+            <div class="message-time">10:32</div>
+          </div>
+        </div>
+
+        <!-- Mensaje 6: Siguiente pregunta -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Excelente. ¿Qué tipo de material está buscando específicamente?</p>
+            </div>
+            <div class="message-time">10:32</div>
+          </div>
+        </div>
+
+        <!-- Chips de materiales -->
+        <div class="message-chips">
+          <button class="chip-option">🧱 Cemento y concreto</button>
+          <button class="chip-option">🔩 Acero y varillas</button>
+          <button class="chip-option">🪵 Madera</button>
+          <button class="chip-option">⚡ Material eléctrico</button>
+          <button class="chip-option">🚰 Plomería</button>
+          <button class="chip-option">🎨 Pintura</button>
+          <button class="chip-option">🔨 Herramientas</button>
+        </div>
+
+        <!-- Mensaje 7: Respuesta del vendedor -->
+        <div class="message sent">
+          <div class="message-avatar">JP</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Cemento y concreto</p>
+            </div>
+            <div class="message-time">10:33</div>
+          </div>
+        </div>
+
+        <!-- Mensaje 8: Pregunta sobre presupuesto -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Entendido. ¿Cuál es el presupuesto aproximado del cliente? 💰</p>
+            </div>
+            <div class="message-time">10:33</div>
+          </div>
+        </div>
+
+        <!-- Chips de presupuesto -->
+        <div class="message-chips">
+          <button class="chip-option">💵 Económico (hasta $5,000)</button>
+          <button class="chip-option">💳 Medio ($5,000 - $15,000)</button>
+          <button class="chip-option">💎 Premium (más de $15,000)</button>
+          <button class="chip-option">📝 Prefiero escribirlo</button>
+        </div>
+
+        <!-- Mensaje 9: Respuesta del vendedor con texto libre -->
+        <div class="message sent">
+          <div class="message-avatar">JP</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Tiene un presupuesto de $12,000 MXN aproximadamente</p>
+            </div>
+            <div class="message-time">10:34</div>
+          </div>
+        </div>
+
+        <!-- Mensaje 10: AntonIA procesando -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble typing">
+              <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensaje 11: Recomendación con card de producto -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">Basándome en tus respuestas, te recomiendo estos productos disponibles en tu sucursal: 🎯</p>
+            </div>
+            <div class="message-time">10:34</div>
+          </div>
+        </div>
+
+        <!-- Card de recomendación de producto -->
+        <div class="product-card-container">
+          <div class="product-card">
+            <div class="product-header">
+              <span class="product-badge">🏆 Recomendado</span>
+              <span class="product-stock">✅ En stock</span>
+            </div>
+            <div class="product-body">
+              <div class="product-image-placeholder">
+                <span class="product-icon">🧱</span>
+              </div>
+              <div class="product-info">
+                <h4 class="product-name">Cemento CPC 30 R</h4>
+                <p class="product-description">Cemento de alta resistencia, ideal para construcciones grandes</p>
+                <div class="product-specs">
+                  <span class="spec">📦 Bulto 50kg</span>
+                  <span class="spec">💪 30 MPa</span>
+                  <span class="spec">⚡ Fraguado rápido</span>
+                </div>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-label">Precio:</span>
+                <span class="price-value">$189.00 <small>MXN</small></span>
+              </div>
+              <button class="btn-add-quote">+ Agregar a cotización</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-header">
+              <span class="product-badge alternative">💡 Alternativa</span>
+              <span class="product-stock">✅ En stock</span>
+            </div>
+            <div class="product-body">
+              <div class="product-image-placeholder">
+                <span class="product-icon">🏗️</span>
+              </div>
+              <div class="product-info">
+                <h4 class="product-name">Cemento Gris Estándar</h4>
+                <p class="product-description">Opción económica para proyectos de construcción general</p>
+                <div class="product-specs">
+                  <span class="spec">📦 Bulto 50kg</span>
+                  <span class="spec">💪 25 MPa</span>
+                  <span class="spec">⏰ Fraguado normal</span>
+                </div>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-label">Precio:</span>
+                <span class="price-value">$149.00 <small>MXN</small></span>
+              </div>
+              <button class="btn-add-quote">+ Agregar a cotización</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mensaje 12: Opciones de acción -->
+        <div class="message received">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="message-text">¿Qué te gustaría hacer ahora?</p>
+            </div>
+            <div class="message-time">10:35</div>
+          </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="action-buttons-inline">
+          <button class="action-btn primary">
+            <span class="action-icon">📋</span>
+            <span class="action-label">Generar cotización</span>
+          </button>
+          <button class="action-btn secondary">
+            <span class="action-icon">🔍</span>
+            <span class="action-label">Ver más productos</span>
+          </button>
+          <button class="action-btn secondary">
+            <span class="action-icon">💬</span>
+            <span class="action-label">Hacer otra pregunta</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Área de input (siempre disponible para texto libre) -->
+    <div class="input-area">
+      <div class="input-container">
+        <textarea 
+          id="message-input" 
+          class="message-input" 
+          placeholder="Escribe tu respuesta o más detalles..."
+          rows="1"
+        ></textarea>
+        <button class="btn-send" id="send-btn">
+          <span>📤</span>
+        </button>
+      </div>
+      <p class="input-hint">💡 Tip: Puedes usar los botones o escribir libremente</p>
+    </div>
+
+  </div>
+
+  <script src="/src/views/dashboard/chat-recommendation/chat-recommendation.js"></script>
+</body>
+</html>
