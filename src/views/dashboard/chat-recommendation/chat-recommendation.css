@@ -34,7 +34,7 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background: var(--bg);
+  background: #6a6a6a;
   cursor: pointer;
   font-size: 24px;
   display: flex;
@@ -81,7 +81,7 @@
 }
 
 .chat-title {
-  font-size: 16px;
+  font-size: 85%;
   font-weight: 600;
   color: var(--color-text);
   margin: 0;
@@ -90,7 +90,7 @@
 }
 
 .chat-subtitle {
-  font-size: 13px;
+  font-size: 65%;
   color: var(--color-muted);
   margin: 0;
 }
@@ -688,7 +688,7 @@
   background: var(--color-primary);
   color: white;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 75%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -717,9 +717,13 @@
 /* ========================================
    DARK MODE
    ======================================== */
-body.dark-mode .chat-header,
+body.dark-mode .chat-header {
+  background: rgb(39, 39, 39);
+  border-color: #333;
+}
+
 body.dark-mode .input-area {
-  background: var(--bg-dark);
+  background: rgb(39, 39, 39);
   border-color: #333;
 }
 
@@ -777,7 +781,7 @@ body.dark-mode .action-btn.secondary:hover {
 }
 
 body.dark-mode .message-input {
-  background: #2a2a2a;
+  background: #6a6a6a;
   border-color: #333;
   color: white;
 }
